@@ -20,6 +20,9 @@ class Cour
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCour = null;
 
+    #[ORM\ManyToOne(inversedBy: 'cours')]
+    private ?NFT $nft = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +48,18 @@ class Cour
     public function setDateCour(?\DateTimeInterface $dateCour): static
     {
         $this->dateCour = $dateCour;
+
+        return $this;
+    }
+
+    public function getNft(): ?NFT
+    {
+        return $this->nft;
+    }
+
+    public function setNft(?NFT $nft): static
+    {
+        $this->nft = $nft;
 
         return $this;
     }

@@ -1,0 +1,7 @@
+App\Entity\intervention:
+  intervention{0..50}:
+    interventionAt: <dateTimeBetween('2018-03-19', NOW)>
+    type: '<sentence()>'
+    detail: '<paragraph(2)>'
+    user: '@user*'
+    nft: '@nft*'

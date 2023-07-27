@@ -1,0 +1,6 @@
+App\Entity\Address:
+  address{0..100}:
+    country: "<country()>"
+    city: "<city()>"
+    # code_postal: "<postcode()>"
+    street: "<streetAddress()>"

@@ -1,0 +1,19 @@
+App\Entity\Category:
+  category_0:
+    name: "Pierres précieuses"
+
+    createdAt: <dateTimeBetween('2018-01-01', '2018-12-31')>
+    image: 'https://ocarat.twic.pics/shared/oc_guides/pierre-precieuse.jpg?v=a1ba24626c7db729c6393e9912b918c4'
+    subCategories: '@subcategory_{0, 1}'
+  category_1:
+    name: "Pierres semi-précieuses"
+
+    createdAt: <dateTimeBetween('2022-01-01', '2022-12-31')>
+    image: 'https://media.istockphoto.com/id/1344004868/fr/photo/belles-pierres-pr%C3%A9cieuses-g%C3%A9ode-am%C3%A9thyste-et-druses-dam%C3%A9thyste-min%C3%A9rale-pourpre-naturelle.jpg?s=612x612&w=0&k=20&c=SN28zUwwmkR2M2Crr83XXKClWlgW53zSSzl8pGJIM04='
+    subCategories: '@subcategory_{0, 1}'
+  category_2:
+    name: "Pierres divers"
+
+    createdAt: <dateTimeBetween('2023-01-01', '2023-12-31')>
+    image: 'https://www.mv-bracelet.com/wp-content/uploads/2022/04/pierre-noir-vertus-proprietes-prix.jpg'
+    subCategories: '@subcategory_{0, 1}'

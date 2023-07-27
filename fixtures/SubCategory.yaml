@@ -1,0 +1,8 @@
+App\Entity\SubCategory:
+  subcategory_0:
+    name: "Pierres brutes"
+
+
+  subcategory_1:
+    name: "Pierres taillées"
+

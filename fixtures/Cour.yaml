@@ -1,0 +1,5 @@
+App\Entity\Cour:
+  cour{0..100}:
+    dateCour: '<datetime()>'
+    value: '<numberBetween(60, 250)>'
+    nft: '@nft*'

@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\GaleryOfUserRepository;
+use App\Repository\OperationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: GaleryOfUserRepository::class)]
-class GaleryOfUser
+#[ORM\Entity(repositoryClass: OperationRepository::class)]
+class Operation
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -15,12 +15,15 @@ class GaleryOfUser
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $createdAt = null;
+    private ?\DateTimeInterface $operationAt = null;
 
-    #[ORM\ManyToOne(inversedBy: 'galeryOfUsers')]
+    #[ORM\Column(nullable: true)]
+    private ?bool $isABuy = null;
+
+    #[ORM\ManyToOne(inversedBy: 'operations')]
     private ?User $user = null;
 
-    #[ORM\ManyToOne(inversedBy: 'galeryiesUser')]
+    #[ORM\ManyToOne(inversedBy: 'operations')]
     private ?NFT $nFT = null;
 
     public function getId(): ?int
@@ -28,14 +31,26 @@ class GaleryOfUser
         return $this->id;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getOperationAt(): ?\DateTimeInterface
     {
-        return $this->createdAt;
+        return $this->operationAt;
     }
 
-    public function setCreatedAt(?\DateTimeInterface $createdAt): static
+    public function setOperationAt(?\DateTimeInterface $operationAt): static
     {
-        $this->createdAt = $createdAt;
+        $this->operationAt = $operationAt;
+
+        return $this;
+    }
+
+    public function isIsABuy(): ?bool
+    {
+        return $this->isABuy;
+    }
+
+    public function setIsABuy(?bool $isABuy): static
+    {
+        $this->isABuy = $isABuy;
 
         return $this;
     }

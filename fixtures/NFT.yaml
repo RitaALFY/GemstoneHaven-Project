@@ -1,0 +1,160 @@
+
+App\Entity\NFT:
+  nft_0:
+    name: 'Diamant bright'
+    image: '/images/brightdiamond.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_1:
+    name: 'Saphire matt'
+    image: '/images/saphirematt.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_2:
+    name: 'Golden crystals '
+    image: '/images/Golden_crystals.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_3:
+    name: 'Diamant '
+    image: '/images/crystalblack.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_4:
+    name: 'Shiny rubi crystals'
+    image: '/images/Shinyrubicrystals.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_5:
+    name: 'crystal emerald'
+    image: '/images/emerald1.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_6:
+    name: 'Emerlad'
+    image: '/images/emerald.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_7:
+    name: 'Caroselimg'
+    image: '/images/caroselimg.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_8:
+    name: 'Diamant gold'
+    image: '/images/diammond_gold.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_9:
+    name: 'Cristal noir'
+    image: '/images/diamonblack.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_10:
+    name: 'Topaz'
+    image: '/images/topaz.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_11:
+    name: 'Magical crystals'
+    image: '/images/magical_crystals.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_12:
+    name: 'rubi shiny crystal'
+    image: '/images/Shinyrubicrystals.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_13:
+    name: 'Diamant noir'
+    image: '/images/blackone.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_14:
+    name: 'Diamant brillant'
+    image: '/images/diammond_shiny.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_15:
+    name: 'Diamant doré'
+    image: '/images/diammond_golden.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_16:
+    name: 'Opal'
+    image: '/images/opal.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_17:
+    name: 'saphire'
+    image: '/images/saphire.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_18:
+    name: 'Shiny Rubi'
+    image: '/images/shinyRubi.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+  nft_19:
+    name: 'Emerald'
+    image: '/images/emerlad.jpeg'
+    dropAt: <dateTimeBetween('2010-11-01', NOW)>
+    description: '<paragraph(5)>'
+    availableQuantity: <numberBetween(1, 4)>
+    currentValue: <numberBetween(15, 200)>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
