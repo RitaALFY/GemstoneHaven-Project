@@ -3,11 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\NFTRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: NFTRepository::class)]
-class NFT
+class NFT implements SlugInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -37,6 +39,26 @@ class NFT
 
     #[ORM\ManyToOne(inversedBy: 'nfts')]
     private ?SubCategory $subCategory = null;
+
+    #[ORM\OneToMany(mappedBy: 'nft', targetEntity: Cour::class)]
+    private Collection $cours;
+
+    #[ORM\OneToMany(mappedBy: 'nFT', targetEntity: Operation::class)]
+    private Collection $operations;
+
+    #[ORM\OneToMany(mappedBy: 'nFT', targetEntity: Intervention::class)]
+    private Collection $interventions;
+
+    #[ORM\OneToMany(mappedBy: 'nFT', targetEntity: GaleryOfUser::class)]
+    private Collection $galeryiesUser;
+
+    public function __construct()
+    {
+        $this->cours = new ArrayCollection();
+        $this->operations = new ArrayCollection();
+        $this->interventions = new ArrayCollection();
+        $this->galeryiesUser = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -135,6 +157,126 @@ class NFT
     public function setSubCategory(?SubCategory $subCategory): static
     {
         $this->subCategory = $subCategory;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Cour>
+     */
+    public function getCours(): Collection
+    {
+        return $this->cours;
+    }
+
+    public function addCour(Cour $cour): static
+    {
+        if (!$this->cours->contains($cour)) {
+            $this->cours->add($cour);
+            $cour->setNft($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCour(Cour $cour): static
+    {
+        if ($this->cours->removeElement($cour)) {
+            // set the owning side to null (unless already changed)
+            if ($cour->getNft() === $this) {
+                $cour->setNft(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Operation>
+     */
+    public function getOperations(): Collection
+    {
+        return $this->operations;
+    }
+
+    public function addOperation(Operation $operation): static
+    {
+        if (!$this->operations->contains($operation)) {
+            $this->operations->add($operation);
+            $operation->setNFT($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOperation(Operation $operation): static
+    {
+        if ($this->operations->removeElement($operation)) {
+            // set the owning side to null (unless already changed)
+            if ($operation->getNFT() === $this) {
+                $operation->setNFT(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Intervention>
+     */
+    public function getInterventions(): Collection
+    {
+        return $this->interventions;
+    }
+
+    public function addIntervention(Intervention $intervention): static
+    {
+        if (!$this->interventions->contains($intervention)) {
+            $this->interventions->add($intervention);
+            $intervention->setNFT($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIntervention(Intervention $intervention): static
+    {
+        if ($this->interventions->removeElement($intervention)) {
+            // set the owning side to null (unless already changed)
+            if ($intervention->getNFT() === $this) {
+                $intervention->setNFT(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, GaleryOfUser>
+     */
+    public function getGaleryiesUser(): Collection
+    {
+        return $this->galeryiesUser;
+    }
+
+    public function addGaleryiesUser(GaleryOfUser $galeryiesUser): static
+    {
+        if (!$this->galeryiesUser->contains($galeryiesUser)) {
+            $this->galeryiesUser->add($galeryiesUser);
+            $galeryiesUser->setNFT($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGaleryiesUser(GaleryOfUser $galeryiesUser): static
+    {
+        if ($this->galeryiesUser->removeElement($galeryiesUser)) {
+            // set the owning side to null (unless already changed)
+            if ($galeryiesUser->getNFT() === $this) {
+                $galeryiesUser->setNFT(null);
+            }
+        }
 
         return $this;
     }

@@ -22,7 +22,7 @@ class SubCategoryRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return SubCategory[] Returns an array of SubCategory objects
+//     * @return SubCategory.yaml[] Returns an array of SubCategory.yaml objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class SubCategoryRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?SubCategory
+//    public function findOneBySomeField($value): ?SubCategory.yaml
 //    {
 //        return $this->createQueryBuilder('s')
 //            ->andWhere('s.exampleField = :val')

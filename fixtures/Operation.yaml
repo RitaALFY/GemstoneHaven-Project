@@ -1,0 +1,6 @@
+App\Entity\Operation:
+  operation{0..50}:
+    operationAt: <dateTimeBetween('2018-11-01', NOW)>
+    isABuy: <boolean()>
+    user: '@user*'
+    nft: '@nft*'

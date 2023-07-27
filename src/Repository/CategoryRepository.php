@@ -22,7 +22,7 @@ class CategoryRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Category[] Returns an array of Category objects
+//     * @return Category.yaml[] Returns an array of Category.yaml objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class CategoryRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Category
+//    public function findOneBySomeField($value): ?Category.yaml
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')

@@ -23,6 +23,12 @@ class Intervention
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $detail = null;
 
+    #[ORM\ManyToOne(inversedBy: 'interventions')]
+    private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'interventions')]
+    private ?NFT $nFT = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +66,30 @@ class Intervention
     public function setDetail(?string $detail): static
     {
         $this->detail = $detail;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getNFT(): ?NFT
+    {
+        return $this->nFT;
+    }
+
+    public function setNFT(?NFT $nFT): static
+    {
+        $this->nFT = $nFT;
 
         return $this;
     }

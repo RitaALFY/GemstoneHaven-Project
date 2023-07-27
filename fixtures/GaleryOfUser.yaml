@@ -1,0 +1,5 @@
+App\Entity\GaleryOfUser:
+  galeryofuser{0..50}:
+    createdAt: <dateTimeBetween('2020-09-14', NOW)>
+    user: '@user*'
+    nft: '@nft*'
