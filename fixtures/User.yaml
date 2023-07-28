@@ -9,5 +9,5 @@ App\Entity\User:
     #        password is : 1234
     password: "\\$2y\\$13\\$IxLbNOJZ2MbYHehPhynFwOun0bQ9lGy6PqXzsv/yJ0RZGW2gElBW6"
     #password: "<password()>"
-    image: '<imageUrl("people")>'
+    image: 'https://xsgames.co/randomusers/avatar.php?g=pixel'
     address: '@address*'

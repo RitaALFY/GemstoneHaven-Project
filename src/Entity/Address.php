@@ -2,12 +2,40 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\AddressRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: AddressRepository::class)]
+#[ApiResource
+(
+    collectionOperations: [
+        'post' => [
+            'denormalization_context' => [
+                'groups' => 'address:post'
+            ]
+        ],
+    ],
+    itemOperations: [
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'address:items'
+            ]
+        ],
+        'put',
+    ],
+)]
+//#[ApiFilter(
+//    SearchFilter::class, properties: [
+//    'city' => 'partial',
+//    'country' => 'partial',
+//],
+//)]
 class Address
 {
     #[ORM\Id]
@@ -16,15 +44,21 @@ class Address
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['address:post', 'address:items'])]
     private ?string $city = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['address:post', 'address:items'])]
+
     private ?string $street = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['address:post', 'address:items','user:post', 'user:items'])]
+
     private ?string $country = null;
 
     #[ORM\OneToMany(mappedBy: 'address', targetEntity: User::class)]
+    #[Groups(['address:post', 'address:items'])]
     private Collection $users;
 
     public function __construct()

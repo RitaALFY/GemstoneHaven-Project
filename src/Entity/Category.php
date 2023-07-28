@@ -2,13 +2,39 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
+#[ApiResource(
+    collectionOperations: [
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'category:list'
+            ]
+        ],
+    ],
+    itemOperations: [
+        'get' => [
+        'normalization_context' => [
+            'groups' => 'category:items'
+            ]
+        ],
+    ],
+)]
+#[ApiFilter(
+    SearchFilter::class, properties: [
+    'name' => 'partial',
+
+],
+)]
 class Category implements SlugInterface
 {
     #[ORM\Id]
@@ -17,15 +43,19 @@ class Category implements SlugInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['category:list', 'category:items'])]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Groups(['category:list', 'category:items'])]
     private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['category:list', 'category:items'])]
     private ?string $slug = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['category:list', 'category:items'])]
     private ?string $image = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
@@ -35,6 +65,7 @@ class Category implements SlugInterface
     private ?\DateTimeInterface $deletionAt = null;
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: SubCategory::class)]
+    #[Groups(['category:list', 'category:items'])]
     private Collection $subCategories;
 
     public function __construct()

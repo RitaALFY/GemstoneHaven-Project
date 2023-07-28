@@ -1,7 +1,6 @@
 App\Entity\Category:
   category_0:
     name: "Pierres précieuses"
-
     createdAt: <dateTimeBetween('2018-01-01', '2018-12-31')>
     image: 'https://ocarat.twic.pics/shared/oc_guides/pierre-precieuse.jpg?v=a1ba24626c7db729c6393e9912b918c4'
     subCategories: '@subcategory_{0, 1}'

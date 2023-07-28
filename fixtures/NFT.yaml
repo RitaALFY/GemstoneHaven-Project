@@ -7,6 +7,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_1:
     name: 'Saphire matt'
     image: '/images/saphirematt.jpeg'
@@ -14,6 +15,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_2:
     name: 'Golden crystals '
     image: '/images/Golden_crystals.jpeg'
@@ -21,6 +23,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_3:
     name: 'Diamant '
     image: '/images/crystalblack.jpeg'
@@ -28,6 +31,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_4:
     name: 'Shiny rubi crystals'
     image: '/images/Shinyrubicrystals.jpeg'
@@ -35,6 +39,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_5:
     name: 'crystal emerald'
     image: '/images/emerald1.jpeg'
@@ -42,6 +47,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_6:
     name: 'Emerlad'
     image: '/images/emerald.jpeg'
@@ -49,6 +55,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_7:
     name: 'Caroselimg'
     image: '/images/caroselimg.jpeg'
@@ -56,6 +63,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_8:
     name: 'Diamant gold'
     image: '/images/diammond_gold.jpeg'
@@ -63,6 +71,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_9:
     name: 'Cristal noir'
     image: '/images/diamonblack.jpeg'
@@ -70,6 +79,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_10:
     name: 'Topaz'
     image: '/images/topaz.jpeg'
@@ -77,6 +87,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_11:
     name: 'Magical crystals'
     image: '/images/magical_crystals.jpeg'
@@ -84,6 +95,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_12:
     name: 'rubi shiny crystal'
     image: '/images/Shinyrubicrystals.jpeg'
@@ -91,6 +103,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_13:
     name: 'Diamant noir'
     image: '/images/blackone.jpeg'
@@ -98,6 +111,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_14:
     name: 'Diamant brillant'
     image: '/images/diammond_shiny.jpeg'
@@ -105,6 +119,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_15:
     name: 'Diamant doré'
     image: '/images/diammond_golden.jpeg'
@@ -112,6 +127,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_16:
     name: 'Opal'
     image: '/images/opal.jpeg'
@@ -119,6 +135,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_17:
     name: 'saphire'
     image: '/images/saphire.jpeg'
@@ -126,6 +143,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_18:
     name: 'Shiny Rubi'
     image: '/images/shinyRubi.jpeg'
@@ -133,6 +151,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
   nft_19:
     name: 'Emerald'
     image: '/images/emerlad.jpeg'
@@ -140,6 +159,7 @@ App\Entity\NFT:
     description: '<paragraph(5)>'
     availableQuantity: <numberBetween(1, 4)>
     currentValue: <numberBetween(15, 200)>
+    subcategory: '@subcategory*'
 
 
 

@@ -2,11 +2,29 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\CourRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CourRepository::class)]
+#[ApiResource(
+    collectionOperations: [
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'cour:list'
+            ]
+        ],
+    ],
+    itemOperations: [
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'cour:items'
+            ]
+        ],
+    ],
+)]
 class Cour
 {
     #[ORM\Id]
@@ -15,12 +33,15 @@ class Cour
     private ?int $id = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['cour:list', 'cour:items'])]
     private ?float $value = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(['cour:list', 'cour:items'])]
     private ?\DateTimeInterface $dateCour = null;
 
     #[ORM\ManyToOne(inversedBy: 'cours')]
+    #[Groups(['cour:list', 'cour:items'])]
     private ?NFT $nft = null;
 
     public function getId(): ?int
