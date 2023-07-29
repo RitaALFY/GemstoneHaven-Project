@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ApiResource
@@ -30,6 +34,22 @@ use Symfony\Component\Serializer\Annotation\Groups;
         ],
         'put',
     ],
+    paginationItemsPerPage: 10
+)]
+
+#[ApiFilter(
+    SearchFilter::class, properties: [
+    'firstName' => 'partial',
+    'lastName' => 'partial',
+    'email' => 'partial',
+    'birthAt ' => 'partial',
+
+],
+)]
+#[ApiFilter(
+    DateFilter::class, properties: [
+    'birthAt '
+]
 )]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -40,6 +60,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 180, unique: true)]
     #[Groups(['user:post', 'user:items'])]
+    #[Assert\NotBlank(message: 'entity.user.email.not_blank')]
     private ?string $email = null;
 
     #[ORM\Column]
@@ -49,17 +70,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
-
+    #[Assert\NotBlank(message: 'entity.user.password.not_blank')]
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups([ 'user:post', 'user:items', 'address:items','galeryofuser:list', 'nft:items'])]
-//    #[Assert\NotBlank(message: 'veuillez entrer le prenom')]
+    #[Groups([ 'user:post', 'user:items', 'address:items','galeryofuser:list','galeryofuser:items', 'nft:items'])]
+    #[Assert\NotBlank(message: 'entity.user.firstName.not_blank')]
     private ?string $firstName = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups([ 'user:post', 'user:items','address:items','nft:items', 'galeryofuser:list'])]
-//    #[Assert\NotBlank(message: 'veuillez entrer le nom')]
+    #[Groups([ 'user:post', 'user:items','address:items','nft:items', 'galeryofuser:list','galeryofuser:items'])]
+    #[Assert\NotBlank(message: 'entity.user.lastName.not_blank')]
     private ?string $lastName = null;
 
     #[ORM\Column]

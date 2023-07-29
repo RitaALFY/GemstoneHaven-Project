@@ -1,0 +1,13 @@
+
+entity:
+  user:
+    firstName:
+      not_blank: "Le prenom doit être renseigné"
+    lastName:
+      not_blank: "Le nom doit être renseigné"
+    email:
+      not_blank: "Un email doit être renseigné"
+      email: "Renseigner un email valide"
+    password:
+      not_blank: "Le mot de passe doit être renseigné"
+
