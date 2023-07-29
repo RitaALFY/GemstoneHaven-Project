@@ -53,11 +53,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['cour:list', 'cour:items', 'user:post', 'user:items','galeryofuser:post', 'galeryofuser:items'])]
+    #[Groups([ 'user:post', 'user:items', 'address:items','galeryofuser:list', 'nft:items'])]
+//    #[Assert\NotBlank(message: 'veuillez entrer le prenom')]
     private ?string $firstName = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['cour:list', 'cour:items', 'user:post', 'user:items','galeryofuser:post', 'galeryofuser:items'])]
+    #[Groups([ 'user:post', 'user:items','address:items','nft:items', 'galeryofuser:list'])]
+//    #[Assert\NotBlank(message: 'veuillez entrer le nom')]
     private ?string $lastName = null;
 
     #[ORM\Column]

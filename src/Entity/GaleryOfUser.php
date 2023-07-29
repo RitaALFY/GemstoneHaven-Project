@@ -2,7 +2,11 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use App\Controller\Api\GaleryOfUser\PostAction;
 use App\Repository\GaleryOfUserRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,21 +16,34 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ApiResource
 (
     collectionOperations: [
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'galeryofuser:list'
+            ]
+        ],
         'post' => [
             'denormalization_context' => [
                 'groups' => 'galeryofuser:post'
             ]
         ],
+//        'controller' => [
+//            PostAction::class,
+//            'handle',
+//        ]
+
 
     ],
     itemOperations: [
-        'get' => [
-            'normalization_context' => [
-                'groups' => 'galeryofuser:items'
-            ]
-        ],
+       'get',
         'put',
     ],
+)]
+
+
+#[ApiFilter(
+    DateFilter::class, properties: [
+    'createdAt'
+]
 )]
 class GaleryOfUser
 {
@@ -36,15 +53,15 @@ class GaleryOfUser
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(['galeryofuser:post', 'galeryofuser:items'])]
+    #[Groups(['galeryofuser:post', 'galeryofuser:list','nft:items', 'user:items'])]
     private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'galeryOfUsers')]
-    #[Groups(['galeryofuser:post', 'galeryofuser:items'])]
+    #[Groups(['galeryofuser:post','user:items', 'galeryofuser:list', 'nft:items'])]
     private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'galeryiesUser')]
-    #[Groups(['galeryofuser:post', 'galeryofuser:items', 'user:items'])]
+    #[Groups(['galeryofuser:post', 'galeryofuser:list', 'user:items', 'nft:items'])]
     private ?NFT $nFT = null;
 
     public function getId(): ?int

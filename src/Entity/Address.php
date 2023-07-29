@@ -30,12 +30,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
         'put',
     ],
 )]
-//#[ApiFilter(
-//    SearchFilter::class, properties: [
-//    'city' => 'partial',
-//    'country' => 'partial',
-//],
-//)]
+
 class Address
 {
     #[ORM\Id]

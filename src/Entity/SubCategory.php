@@ -42,7 +42,7 @@ class SubCategory implements SlugInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['subcategory:list', 'subcategory:items'])]
+    #[Groups(['subcategory:list', 'subcategory:items', 'nft:items', 'nft:list'])]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]

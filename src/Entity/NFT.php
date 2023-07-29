@@ -2,13 +2,53 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use App\Repository\NFTRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: NFTRepository::class)]
+#[ApiResource
+(
+    collectionOperations: [
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'nft:list'
+            ]
+        ],
+        'post' => [
+            'denormalization_context' => [
+                'groups' => 'nft:post'
+            ]
+        ],
+    ],
+    itemOperations: [
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'nft:items'
+            ]
+        ],
+        'put',
+    ],
+)]
+
+
+
+#[ApiFilter(
+    OrderFilter::class,
+    properties: [
+        'name',
+        'currentValue ',
+    ],
+    arguments: [
+        'orderParameterName' => 'order'
+    ])
+]
 class NFT implements SlugInterface
 {
     #[ORM\Id]
@@ -17,30 +57,39 @@ class NFT implements SlugInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['nft:post', 'nft:items', 'nft:list', 'cour:list',  'user:items', 'cour:items','galeryofuser:list', 'subcategory:list', 'subcategory:items'])]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['nft:post', 'nft:items', 'nft:list'])]
     private ?string $image = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Groups(['nft:post', 'nft:items', 'nft:list'])]
     private ?\DateTimeInterface $dropAt = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['nft:post', 'nft:items', 'nft:list'])]
     private ?string $description = null;
 
     #[ORM\Column]
+    #[Groups(['nft:post', 'nft:items', 'nft:list'])]
     private ?int $availableQuantity = null;
 
     #[ORM\Column]
+    #[Groups(['nft:post', 'nft:items', 'nft:list'])]
     private ?float $currentValue = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups([ 'nft:items', 'nft:list'])]
     private ?string $slug = null;
 
     #[ORM\ManyToOne(inversedBy: 'nfts')]
+    #[Groups(['nft:post', 'nft:items', 'nft:list'])]
     private ?SubCategory $subCategory = null;
 
     #[ORM\OneToMany(mappedBy: 'nft', targetEntity: Cour::class)]
+    #[Groups(['nft:post', 'nft:items', 'nft:list'])]
     private Collection $cours;
 
     #[ORM\OneToMany(mappedBy: 'nFT', targetEntity: Operation::class)]
@@ -50,6 +99,7 @@ class NFT implements SlugInterface
     private Collection $interventions;
 
     #[ORM\OneToMany(mappedBy: 'nFT', targetEntity: GaleryOfUser::class)]
+    #[Groups(['nft:post', 'nft:items', 'nft:list'])]
     private Collection $galeryiesUser;
 
     public function __construct()

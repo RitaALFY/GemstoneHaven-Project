@@ -43,7 +43,7 @@ class Category implements SlugInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['category:list', 'category:items'])]
+    #[Groups(['category:list', 'category:items', 'subcategory:list', 'subcategory:items', 'nft:items', 'nft:list'])]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
@@ -65,7 +65,7 @@ class Category implements SlugInterface
     private ?\DateTimeInterface $deletionAt = null;
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: SubCategory::class)]
-    #[Groups(['category:list', 'category:items'])]
+    #[Groups(['category:list', 'category:items', ])]
     private Collection $subCategories;
 
     public function __construct()

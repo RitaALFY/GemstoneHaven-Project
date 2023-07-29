@@ -33,11 +33,11 @@ class Cour
     private ?int $id = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(['cour:list', 'cour:items'])]
+    #[Groups(['cour:list', 'cour:items','nft:items', 'nft:list'])]
     private ?float $value = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(['cour:list', 'cour:items'])]
+    #[Groups(['cour:list', 'cour:items', 'nft:items', 'nft:list'])]
     private ?\DateTimeInterface $dateCour = null;
 
     #[ORM\ManyToOne(inversedBy: 'cours')]
