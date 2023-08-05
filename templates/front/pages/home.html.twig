@@ -5,25 +5,51 @@
 {% endblock %}
 
 {% block leogout_seo %}
-    <meta name="description"
-          content="gemstonehaven.com : Nft  de pierres en ligne  ">
+    <meta name="description" content="gemstonehaven.com : Nft de pierres en ligne">
 {% endblock %}
 
 {% block body %}
 
-{#    {% include 'front/partial/_flashes.html.twig' %}#}
+    {# {% include 'front/partial/_flashes.html.twig' %} #}
 
-    <h1 class="text-center"> Gemstone Haven</h1>
+    <h1 class="text-center">Bienvenue chez Gemstone Haven</h1>
 
-{#    <h2 class="mt-5 mb-4">{{ 'pages.home.title.nft'|trans }}</h2>#}
+    <div class="leftOne col-4 m-lg-5">
+        <h2 class="mt-5 mb-4">{{ 'Notre galerie' }}</h2>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                {% for key, lastNFt in lastNFts %}
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ key }}" {% if loop.first %}class="active" {% endif %} aria-label="Slide {{ key+1 }}"></button>
+                {% endfor %}
+            </div>
+            <div class="carousel-inner">
+                {% for key, lastNFt in lastNFts %}
+                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+                        <img src="{{ lastNFt.image }}" class="d-block w-100" alt="{{ lastNFt.name }}">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{ lastNFt.name }}</h5>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
 
-{#    <div class="row">#}
-{#        {% for nft in nfts %}#}
-{#            {% include 'front/partial/_nft_card.html.twig' with#}
-{#                {#}
-{#                    'nft': nft,#}
-{#                }#}
-{#            %}#}
-{#        {% endfor %}#}
-{#    </div>#}
+    <script>
+        // Utilisez le sélecteur correct pour votre carousel (peut varier selon la version de Bootstrap utilisée)
+        const carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleCaptions'), {
+            interval: 5000, // Délai entre chaque transition en millisecondes
+            wrap: true, // Le carousel revient au début une fois la dernière image atteinte
+            keyboard: true, // Activation des contrôles au clavier (flèches gauche/droite)
+        });
+    </script>
+
 {% endblock %}
