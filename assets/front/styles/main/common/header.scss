@@ -1,0 +1,159 @@
+//@import "../../../../shared/styles/main";
+h1 {
+  font-family: $heading-font;
+  font-weight: bolder;
+  font-size: 50px;
+  color: $golden;
+}
+
+h2,
+h3 {
+  font-family: $subtitle-font;
+  font-size: 20px;
+}
+
+/*bloc heading*/
+.top {
+  display: flex;
+}
+
+.logo {
+  margin-left: 0;
+  display: inline-block;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.logo img {
+
+
+
+  height: 188px;
+  float: left;
+  position: absolute;
+  z-index: 1;
+}
+
+.title {
+  width: 100%;
+  background-color: $bg-footdark;
+  display: inline-block;
+  justify-content: space-between;
+
+  padding-right: 0;
+  text-align: center;
+  padding-bottom: 20px;
+  vertical-align: middle;
+
+}
+
+.title h1 {
+  text-align: center;
+  margin-top: 50px;
+  margin-right: 50px;
+  margin-left: 0px;
+  padding-left: 0px;
+
+}
+
+.login {
+  float: right;
+  margin-right: 100px;
+  margin-top: -55px;
+  text-align: center;
+  background-color: $bg-foot;
+  color: gray;
+  padding: 10px 25px;
+  border: solid 2px $black;
+  border-radius: 7px;
+  box-shadow: $dark;
+
+
+}
+
+.login a {
+  text-decoration: none;
+  list-style: none;
+  color: $dark;
+
+  font-size: 16px;
+  text-align: center;
+
+
+}
+
+.login a:hover {
+  color: $brown;
+  border: solid, 1px $yellow;
+  background-color: transparent;
+  transition: all 0.5s ease-in-out;
+  padding: 5px 10px;
+
+}
+
+/*navbar*/
+
+nav {
+  position: relative;
+  z-index: 0;
+}
+
+.navbar {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: $bg-foot;
+  border: solid 2px $bg-foot;
+  padding-right: 50px;
+  margin-left: 175px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+}
+.navbar-index{
+  padding-top :8.5px;
+  padding-bottom :8.5px;
+}
+.navbar-index img {
+  max-width: 80%; /* Ajustez la valeur selon vos besoins */
+  height: auto;
+}
+
+ul li a {
+  text-decoration: none;
+  list-style: none;
+  color: $dark;
+  font-size: 16px;
+  padding: 10px 15px;
+}
+
+ul li a:hover {
+  background-color: $bg-footdark;
+  color: $lightgray;
+  border: solid 1px $yellow;
+  box-shadow: inset;
+  transition: all 0.5s ease-in-out;
+  border-radius: 7px;
+}
+
+#mybtndrop {
+  background-color: $bg-footdark!important;
+  color: $lightgray;
+  border: solid 1px $yellow;
+  border-radius: 7px;
+  transition: all 0.5s ease-in-out;
+}
+
+#mybtndrop:hover {
+  background-color: $bg-foot!important;
+  color: $dark;
+}
+/*responsive */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+}

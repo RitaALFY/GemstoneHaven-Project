@@ -11,38 +11,58 @@
 {% block body %}
 
     {# {% include 'front/partial/_flashes.html.twig' %} #}
+    <section id="home">
+        <!--the left side -->
+        <section id="carousel ">
+            <div class="left">
+                <p>Bienvenue dans le monde "GEMSTONE HAVEN"</p>
+                <div class="gallery " >
 
-    <h1 class="text-center">Bienvenue chez Gemstone Haven</h1>
 
-    <div class="leftOne col-4 m-lg-5">
-        <h2 class="mt-5 mb-4">{{ 'Notre galerie' }}</h2>
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                {% for key, lastNFt in lastNFts %}
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ key }}" {% if loop.first %}class="active" {% endif %} aria-label="Slide {{ key+1 }}"></button>
-                {% endfor %}
-            </div>
-            <div class="carousel-inner">
-                {% for key, lastNFt in lastNFts %}
-                    <div class="carousel-item {% if loop.first %}active{% endif %}">
-                        <img src="{{ lastNFt.image }}" class="d-block w-100" alt="{{ lastNFt.name }}">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>{{ lastNFt.name }}</h5>
+
+                    <div class="leftOne  m-lg-2">
+                        <h3 class="mt-5 mb-4">{{ 'Notre galerie' }}</h3>
+                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                {% for key, lastNFt in lastNFts %}
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ key }}" {% if loop.first %}class="active" {% endif %} aria-label="Slide {{ key+1 }}"></button>
+                                {% endfor %}
+                            </div>
+                            <div class="carousel-inner">
+                                {% for key, lastNFt in lastNFts %}
+                                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                        <img src="{{ lastNFt.image }}" class="d-block w-100" alt="{{ lastNFt.name }}">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>{{ lastNFt.name }}</h5>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
                     </div>
-                {% endfor %}
+                </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
+        </section>
+        <!--the right side -->
+        <section id="login">
+            <div class="right">
+                <p><span>Inscrivez-vous</span> <span>pour utiliser</span> <span>nos services.</span><br>
+                    <span>C'est gratuit</span> <span>et ne nécessite</span> <span>aucune transaction.</span>
+                </p>
+                <button class="btn-yellow"><a href="" target="_blank">S'inscrire</a> </button>
+            </div>
+        </section>
 
+
+    </section>
     <script>
         // Utilisez le sélecteur correct pour votre carousel (peut varier selon la version de Bootstrap utilisée)
         const carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleCaptions'), {

@@ -1,4 +1,18 @@
 body {
-  padding-top: 50px;
-  background-color: #fffcf5;
+  overflow-x: hidden;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  background-color: $lightbeige;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+
+}
+h2,
+h3 {
+  font-family: $subtitle-font;
+  font-size: 20px;
 }
