@@ -3,8 +3,14 @@ front:
   pages:
     category:
       index:
-        title: 'Liste des categories ',
+        title: 'Liste des categories '
 pages:
   home:
     title:
       gallery: "Notre Gallerie"
+  error: "Cette page n'existe pas !"
+  nft:
+    list_by:
+      title: 'messages'
+    show:
+      subcategories: 'messages'

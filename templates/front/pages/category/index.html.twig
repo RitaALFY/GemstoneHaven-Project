@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <h5 class="card-category-name">{{ category.name }}</h5>
                         <p class="card-text"> Date de création:{{ category.createdAt|date('d/m/Y') }}</p>
-                        <a href="#" class="btn btn-primary">Voir</a>
+                        <a href="{{ path('app_subcategory') }}" class="btn btn-primary">Voir</a>
                     </div>
                 </div>
             </div>

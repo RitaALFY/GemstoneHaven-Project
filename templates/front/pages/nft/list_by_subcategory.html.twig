@@ -1,0 +1,30 @@
+{% extends 'front/base.html.twig' %}
+
+{% block body %}
+
+    <h1 class="my-5">
+        {% if subcategory is defined %}
+            {{ 'pages.nft.list_by.title'|trans({'%by_something%': subcategory.name }) }}
+
+        {% endif %}
+    </h1>
+
+    <div class="row">
+        {% for nft in nfts %}
+            {% include 'front/partial/_nft_card.html.twig' with
+                {
+                    'nft': nft,
+                }
+            %}
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+{% block title %}
+    {% if subcategory is defined %}
+        {{ 'pages.nft.list_by.title'|trans({'%by_something%': subcategory.name }) }}
+
+    {% endif %}
+{% endblock %}
+

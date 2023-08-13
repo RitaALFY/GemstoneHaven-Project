@@ -24,5 +24,10 @@ class HomeController extends AbstractController
 
     ]);
     }
+    #[Route('/about', name: 'about')]
+    public function about()
+    {
+        return $this->render('front/common/about.html.twig');
+    }
 
 }

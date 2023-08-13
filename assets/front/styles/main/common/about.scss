@@ -1,0 +1,44 @@
+
+
+#who {
+
+  padding: 0 5%;
+  text-align: center;
+  margin-top: 2px;
+
+    //background-color: $bg-footdark;
+
+  #who h2, P {
+    color: $bg-footdark;
+    padding-top: 0%;
+  }
+
+  .btn-back {
+
+    text-align: center;
+    background-color:$bg-foot;
+    color: gray;
+    font-size: 16px;
+    padding: 10px 40px;
+    border: solid 1px $black;
+    border-radius: 7px;
+    box-shadow: $dark;
+    margin: 3rem 0;
+
+  }
+
+  .btn-back a {
+    text-decoration: none;
+    list-style: none;
+    color: $dark;
+
+  }
+
+  .btn-back a:hover {
+    color: $brown;
+    border: solid, 1px $dark;
+    background-color: transparent;
+    transition: all 0.5s ease-in-out;
+    padding: 5px 10px;
+  }
+}

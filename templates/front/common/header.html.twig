@@ -16,11 +16,11 @@
         <!--navbar-->
         <nav>
             <ul class="navbar navbar-index">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="propos.html">A propos</a></li>
+                <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                <li><a href="{{ path('about') }}">A propos</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li class="dropdown">
-                    <a href="galeries.html" class="dropdown-toggle">Galeries</a>
+                    <a href="{{ path('app_category_index') }}" class="dropdown-toggle">Galeries</a>
                     <ul class='dropdown-menu'>
                         <li><a class="dropdown-item" href="collectionPR.html">Collection de pierres précieuses</a>
                         </li>

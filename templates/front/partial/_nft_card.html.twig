@@ -1,0 +1,34 @@
+{% if containerClass is not defined %}
+    {% set containerClass = 'col-lg-4 col-md-6 col-sm-12' %}
+{% endif %}
+
+<div class="{{ containerClass }}">
+    <div class="card-nft-container">
+        <a href="{{ path('nft_redirect', { 'slug': nft.slug }) }}">
+            <img src="{{ nft.image }}" alt="{{ nft.name }}">
+        </a>
+    </div>
+    <div class="d-flex justify-content-between">
+        <div>
+            <p class="card-nft-name">{{ nft.name }}</p>
+        </div>
+        <div>
+            {{ nft.price }}€
+        </div>
+    </div>
+</div>
+
+
+{#        {% set displayPrice = true %}#}
+{#        {% if user is defined %}#}
+{#            {% if app.user == user %}#}
+{#                {% set displayPrice = false %}#}
+{#            {% endif %}#}
+{#        {% endif %}#}
+{#        {% if displayPrice %}#}
+{#            <div>#}
+{#                {{ game.price }}€#}
+{#            </div>#}
+{#        {% endif %}#}
+{#    </div>#}
+{#</div>#}

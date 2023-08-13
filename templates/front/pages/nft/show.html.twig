@@ -1,0 +1,60 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}
+    Acheter : {{ nft.name }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="mt-5">
+        <div class="container-top row">
+            <div class="col-7 p-0 h-100">
+                <div class="container-image-nft-show">
+                    <img src="{{ nft.image }}">
+                </div>
+            </div>
+            <div class="col-1">
+            </div>
+            <div class="col-4 my-auto">
+                <div class="h-100">
+                    <h1 class="text-center mb-4">{{ nft.name }}</h1>
+
+                    <p class="my-4 fs-2 text-center">{{ nft.currentValue}}€</p>
+                    <div class="w-100 mt-4">
+                        <button class="button-fire fs-3" data-buy-nft="{{ nft.id }}">
+                            Acheter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <p>Date de publication : {{ nft.dropAt|date('d/m/Y') }}</p>
+            <div>
+                <p>{{ 'pages.nft.show.subcategories'|trans }}</p>
+                <ul class="list-unstyled">
+                    {% for subcategory in nft.subCategory %}
+                        <li>
+                            <a class="main-link" href="{{ path('nft_redirect', {'slug': subcategory.slug}) }}">
+                                {{ subcategory.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div>
+                <h2>A propos du nft</h2>
+                <p>{{ nft.description|raw }}</p>
+            </div>
+        </div>
+
+
+                <div class="navigation d-flex justify-content-center mt-4">
+                    {{ knp_pagination_render(reviews) }}
+                </div>
+            </div>
+
+
+
+{% endblock %}
