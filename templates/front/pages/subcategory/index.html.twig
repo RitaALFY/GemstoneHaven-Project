@@ -1,0 +1,27 @@
+{% extends 'front/base.html.twig' %}
+{% block title %}
+    {{ 'front.pages.category.index.title'|trans }}
+{% endblock %}
+
+
+{% block body %}
+    {% if containerClass is not defined %}
+        {% set containerClass = 'col-lg-4 col-md-6 col-sm-12' %}
+    {% endif %}
+
+<h1>Liste des subcatégories</h1>
+<div class="row ">
+    {% for sub in subCategories %}
+        <div class="{{ containerClass }}">
+            <div class="card-category-container " style="width: 40rem; height: 40rem;">
+                <img src="{{ asset('images/general/tailles.jpeg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-category-name">{{ sub.name }}</h5>
+
+                    <a href="#" class="btn btn-primary">Voir</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

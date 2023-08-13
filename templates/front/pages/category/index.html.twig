@@ -1,0 +1,64 @@
+{% extends 'front/base.html.twig' %}
+{% block title %}
+    {{ 'front.pages.category.index.title'|trans }}
+{% endblock %}
+
+
+{% block body %}
+    {% if containerClass is not defined %}
+        {% set containerClass = 'col-lg-4 col-md-6 col-sm-12' %}
+    {% endif %}
+
+    <h1>Liste des catégories</h1>
+    <div class="row ">
+        {% for category in categories %}
+            <div class="{{ containerClass }}">
+                <div class="card-category-container " style="width: 40rem; height: 40rem;">
+                    <img src="{{ category.image }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-category-name">{{ category.name }}</h5>
+                        <p class="card-text"> Date de création:{{ category.createdAt|date('d/m/Y') }}</p>
+                        <a href="#" class="btn btn-primary">Voir</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{#    <table class="table">#}
+{#        <thead>#}
+{#            <tr>#}
+{#                <th>Id</th>#}
+{#                <th>Name</th>#}
+{#                <th>CreatedAt</th>#}
+{#                <th>Slug</th>#}
+{#                <th>Image</th>#}
+{#                <th>ModificationAt</th>#}
+{#                <th>DeletionAt</th>#}
+{#                <th>actions</th>#}
+{#            </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#        {% for category in categories %}#}
+{#            <tr>#}
+{#                <td>{{ category.id }}</td>#}
+{#                <td>{{ category.name }}</td>#}
+{#                <td>{{ category.createdAt ? category.createdAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#                <td>{{ category.slug }}</td>#}
+{#                <td>{{ category.image }}</td>#}
+{#                <td>{{ category.modificationAt ? category.modificationAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#                <td>{{ category.deletionAt ? category.deletionAt|date('Y-m-d H:i:s') : '' }}</td>#}
+{#                <td>#}
+{#                    <a href="{{ path('app_category_show', {'id': category.id}) }}">show</a>#}
+{#                    <a href="{{ path('app_category_edit', {'id': category.id}) }}">edit</a>#}
+{#                </td>#}
+{#            </tr>#}
+{#        {% else %}#}
+{#            <tr>#}
+{#                <td colspan="8">no records found</td>#}
+{#            </tr>#}
+{#        {% endfor %}#}
+{#        </tbody>#}
+{#    </table>#}
+
+{#    <a href="{{ path('app_category_new') }}">Create new</a>#}
+{% endblock %}

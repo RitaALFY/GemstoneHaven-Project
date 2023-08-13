@@ -1,3 +1,9 @@
+
+front:
+  pages:
+    category:
+      index:
+        title: 'Liste des categories ',
 pages:
   home:
     title:
