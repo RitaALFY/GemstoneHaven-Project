@@ -1,5 +1,5 @@
 #bg_home{
-  background-image: url(../../../../public/images/general/background.jpeg);
+  background-image: url(../../../../public/images/general/background2.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -25,6 +25,9 @@
 
   .left {
     margin-top: 50px;
+    margin-bottom: 2rem;
+    padding-right: 4rem;
+    padding-left: 1rem;
   }
 
   .left p {
@@ -37,7 +40,7 @@
 
   .gallery {
     border: solid 2px $bg-footdark;
-    background-color: $brown;
+    background-color: $bg-footdark;
     padding-top: 10px;
     text-align: center;
     width: 400px;
@@ -65,8 +68,9 @@
     margin-bottom: 30px;
   }
 
-  #login {
-    padding-top: 150px;
+  .right {
+    padding-top: 100px;
+    width: 400px;
   }
 
   .right p {
