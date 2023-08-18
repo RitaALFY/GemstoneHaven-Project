@@ -2,9 +2,13 @@
 
 namespace App\Repository;
 
+use App\Entity\GaleryOfUser;
 use App\Entity\NFT;
+
+use App\Entity\SubCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -46,33 +50,21 @@ class NFTRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function findFullOneBy(string $slug) : ? NFT
+    {return $this->getQbAll()
+        ->where('n.slug = :slug')
+        ->setParameter('slug', $slug)
+        ->getQuery()
+        ->getOneOrNullResult();
+    }
     /**
      * @throws NonUniqueResultException
      */
-    public function findFullOneBy(string $slug): ?NFT {
-        return $this->createQueryBuilder('nft')
-            ->where('nft.slug = :slug')
-            ->setParameter('slug', $slug)
-            ->getQuery()
-            ->getOneOrNullResult();
-    }
 
-//    public function findByRelatedCategory(NFT $nft, ?int $limit =null):array
-//    {
-//        return $this->createQueryBuilder('nft')
-//            ->select('nft')
-//            ->join('nft.subcategories', 's')
-//            ->where('s IN (:subcategories)')
-//            ->setParameter('subcategories', $nft->getSubCategory())
-//            ->andWhere('nft != :currentNFT')
-//            ->setParameter('currentNFT', $nft)
-//            ->groupBy('nft')
-//            ->orderBy('COUNT(s)', 'DESC')
-//            ->setMaxResults($limit)
-////            ->distinct(true) // Permet de bien prendre en compte la limite et d'ignorer le nombre instances
-//            ->getQuery()
-//            ->getResult();
-//    }
+
+
+
+
 
 
 

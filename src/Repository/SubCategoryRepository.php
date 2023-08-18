@@ -45,13 +45,13 @@ class SubCategoryRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-    public function findBySubCategory(SubCategory $subCategory)
-    { return $this->createQueryBuilder('nft')
-        ->join('nft.subcategories', 's')
-        ->where('s = :subcategory')
-        ->setParameter('subcategory', $subCategory)
-        ->orderBy('nft.name', 'DESC')
-        ->getQuery()
-        ->getResult();
-    }
+//    public function findBySubCategory(SubCategory $subCategory)
+//    { return $this->createQueryBuilder('nft')
+//        ->join('nft.subcategories', 's')
+//        ->where('s = :subcategory')
+//        ->setParameter('subcategory', $subCategory)
+//        ->orderBy('nft.name', 'DESC')
+//        ->getQuery()
+//        ->getResult();
+//    }
 }
