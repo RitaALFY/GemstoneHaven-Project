@@ -57,6 +57,17 @@ class NFTRepository extends ServiceEntityRepository
         ->getQuery()
         ->getOneOrNullResult();
     }
+
+    public function findBySub(SubCategory $sub)
+    {return $this->createQueryBuilder('n')
+        ->join('n.subCategory', 's')
+        ->where('s = :subCategory')
+        ->setParameter('subCategory', $sub)
+        ->orderBy('n.dropAt', 'DESC')
+        ->getQuery()
+        ->getResult()
+        ;
+    }
     /**
      * @throws NonUniqueResultException
      */

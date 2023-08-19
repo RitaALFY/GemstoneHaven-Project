@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Repository\NFTRepository;
 use App\Entity\NFT;
 use App\Repository\SubCategoryRepository;
+use http\Env\Request;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,10 +32,35 @@ class NftController extends AbstractController
         ]);
     }
 
+
+    #[Route('/nft/disponible/{slug}', name: 'app_nft_availablebbysub')]
+    public function availablebBySub(
+        string $slug,
+        SubCategoryRepository $subCategoryRepository
+    ): Response {
+        $sub = $subCategoryRepository->findOneBy(['slug' => $slug]);
+
+        if ($sub === null) {
+            $this->addFlash(
+                'danger',
+                $this->translator->trans('pages.error')
+            );
+            return $this->redirectToRoute('app_home');
+        }
+
+        $nfts = $this->NFTRepository->findBySub($sub);
+
+        return $this->render('front/pages/nft/list_by_subcategory.html.twig', [
+            'sub' => $sub,
+            'nfts' => $nfts,
+        ]);
+    }
+
+
     #[Route('/nft/show/{slug}', name: 'app_nft_show')]
     public function show(string $slug): Response
     {
-        $nft = $this->NFTRepository->findFullOneBy(['slug' => $slug]);
+        $nft  = $this->NFTRepository->findOneBy(['slug' => $slug]);
 
         if (!$nft) {
             throw $this->createNotFoundException('NFT not found');
@@ -43,5 +69,4 @@ class NftController extends AbstractController
         return $this->render('front/pages/nft/show.html.twig', [
             'nft' => $nft,
         ]);
-    }
-}
+}}

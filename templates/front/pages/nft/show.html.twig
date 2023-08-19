@@ -1,2 +1,41 @@
 {% extends 'front/base.html.twig' %}
 
+{% block title %}
+    Acheter : {{ nft.name }}
+{% endblock %}
+
+{% block body %}
+    <div class="mt-5">
+        <div class="container-top row">
+            <div class="col-7 p-0 h-100">
+                <div class="container-image-nft-show">
+                    <img src="{{ nft.image }}" alt="{{ nft.name }}" class="img-fluid rounded-3 shadow-4">
+                </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-4 my-auto">
+                <div class="h-100">
+                    <h1 class="text-center mb-4">{{ nft.name }}</h1>
+                    <p class="my-4 fs-2 text-center">{{ nft.currentValue }}€</p>
+                    <div class="w-100 mt-4">
+                        <button class="btn btn-primary btn-lg" data-buy-nft="{{ nft.id }}">
+                            Acheter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <p>Date de publication : {{ nft.dropAt|date('d/m/Y') }}</p>
+
+            <h2>A propos du nft</h2>
+            <p>{{ nft.description|raw }}</p>
+            <p>Quantité disponible: ({{ nft.availableQuantity }})</p>
+            <p>Catégorie: {{ nft.subCategory.category.name }}</p>
+            <img src="{{ nft.subCategory.category.image }}" alt="Category Image" class="img-thumbnail" style="max-width: 100px;">
+            <p>Sous-catégorie: {{ nft.subCategory.name }}</p>
+
+        </div>
+    </div>
+{% endblock %}

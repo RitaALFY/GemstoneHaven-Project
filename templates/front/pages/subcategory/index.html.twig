@@ -17,8 +17,7 @@
                 <img src="{{ asset('images/general/tailles.jpeg') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-category-name">{{ sub.name }}</h5>
-
-                    <a href="{{ path('app_nft') }}" class="btn btn-primary">Voir</a>
+                    <a href="{{ path('app_nft_availablebbysub', {'slug': sub.slug}) }}" class="btn btn-primary">Voir les NFTs disponibles</a>
                 </div>
             </div>
         </div>

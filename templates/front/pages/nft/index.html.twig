@@ -1,16 +1,25 @@
 {% extends 'front/base.html.twig' %}
 
-{% block title %}Hello NftController!{% endblock %}
+{% block title %}Liste des NFTs{% endblock %}
 
 {% block body %}
+    <style>
+        .card-img-top {
+            height: 400px; /* Set the desired fixed height for the images */
+            object-fit: cover; /* Ensure images maintain aspect ratio and cover the container */
+        }
+    </style>
+
     <div class="row">
         {% for nft in nfts %}
-            <div class="card" style="width: 18rem;">
-                <img src="{{ nft.image }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{ nft.name }}</h5>
-                    <p class="card-text">Date de création: {{ nft.dropAt|date('d/m/Y') }}</p>
-                    <a href="{{ path('app_nft_show', {'slug': nft.slug}) }}" class="btn btn-primary">Go somewhere</a>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <img src="{{ nft.image }}" class="card-img-top" alt="{{ nft.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ nft.name }}</h5>
+                        <p class="card-text">Date de création: {{ nft.dropAt|date('d/m/Y') }}</p>
+                        <a href="{{ path('app_nft_show', {'slug': nft.slug}) }}" class="btn btn-primary">Voir les détails</a>
+                    </div>
                 </div>
             </div>
         {% endfor %}

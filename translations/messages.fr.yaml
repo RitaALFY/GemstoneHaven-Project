@@ -11,6 +11,6 @@ pages:
   error: "Cette page n'existe pas !"
   nft:
     list_by:
-      title: 'messages'
+      title: "Les nfts %by_something%"
     show:
       subcategories: 'messages'
