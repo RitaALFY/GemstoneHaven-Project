@@ -14,3 +14,10 @@ pages:
       title: "Les nfts %by_something%"
     show:
       subcategories: 'messages'
+  user:
+    register:
+      title: "Inscription"
+    success_create: "Inscription réussie !"
+common:
+  button:
+    confirm: "Valider"
