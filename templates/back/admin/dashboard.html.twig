@@ -1,20 +1,32 @@
-<!DOCTYPE html>
-
-<title>Hello AdminController!</title>
+{% extends 'back/base.html.twig' %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+ <h1>{{ 'back.pages.dashboard.title'|trans }}</h1>
+ <div class="col-lg-6 col-md-12">
+  <h3>{{ 'back.pages.dashboard.last_add'|trans }}</h3>
+  <table class="table table-dark table-striped">
+   <thead>
+   <tr>
+    <th>Nom</th>
+    <th>Prix</th>
+   </tr>
+   </thead>
+   <tbody>
+   {% for nft in nfts %}
+    <tr>
+     <td>
+      {{ nft.name }}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+     </td>
+     <td>
+      {{ nft.currentValue }}
+     </td>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/HB/Desktop/BC_GemstoneHaven_Rita/GemstoneHaven-Project/src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/HB/Desktop/BC_GemstoneHaven_Rita/GemstoneHaven-Project/templates/admin/dashboard.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a></code></li>
-    </ul>
-</div>
+    </tr>
+   {% endfor %}
+   </tbody>
+  </table>
+ </div>
+ </div>
+
 {% endblock %}

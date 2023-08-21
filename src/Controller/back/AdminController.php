@@ -19,9 +19,9 @@ class AdminController extends AbstractController
     {
 
         return $this->render('back/admin/dashboard.html.twig', [
-            'controller_name' => 'AdminController',
-            'users' => $userRepository->findBy([], ['name' => 'DESC'], 4),
-            'nfts' =>$NFTRepository->findLastAjoute(),
+
+            'users' => $userRepository->findBy([], ['lastName' => 'DESC'], 4),
+            'nfts' =>$NFTRepository->findLastAdd(),
         ]);
     }
 }

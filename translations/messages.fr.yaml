@@ -21,3 +21,8 @@ pages:
 common:
   button:
     confirm: "Valider"
+back:
+  pages:
+    dashboard:
+      title: "Dashboard Administration"
+      last_add: "Les derniers nfts ajoutées"

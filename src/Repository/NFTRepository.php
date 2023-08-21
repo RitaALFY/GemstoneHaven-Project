@@ -68,10 +68,23 @@ class NFTRepository extends ServiceEntityRepository
         ->getResult()
         ;
     }
+
+    public function findLastAdd(int $limit = 5): array
+    {
+        return $this->createQueryBuilder('n')
+            ->join(GaleryOfUser::class ,
+            'gou',
+            Join::WITH,
+            'gou.nFT = n')
+            ->orderBy('gou.createdAt', 'DESC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
     /**
      * @throws NonUniqueResultException
      */
-
 
 
 
