@@ -1,0 +1,17 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+    {{ 'back.pages.nft.new.title'|trans }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="d-flex my-4">
+        <a class="main-link my-auto ms-5 me-3" href="{{ path('app_admin_n_f_t_index') }}">
+            <i class="fa fa-arrow-left fa-2x"></i>
+        </a>
+        <h1 class="my-4">{{ 'back.pages.nft.new.title'|trans }}</h1>
+    </div>
+
+    {{ include('back/admin/pages/nft/_form.html.twig') }}
+{% endblock %}

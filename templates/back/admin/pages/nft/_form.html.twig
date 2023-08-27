@@ -1,0 +1,48 @@
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+<div class="mx-auto col-10">
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            {{ form_row(form.name) }}
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            {{ form_row(form.dropAt) }}
+            {{ form_row(form.currentValue) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            {{ form_row(form.availableQuantity) }}
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            {{ form_row(form.image) }}
+        </div>
+    </div>
+
+    <div class="row my-3">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            {{ form_row(form.subCategory) }}
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            {{ form_row(form.selectedCategoryName) }}
+        </div>
+    </div>
+
+    <div class="row my-3">
+        <div class="col-12">
+            {{ form_row(form.description) }}
+        </div>
+    </div>
+
+    <div class="row my-3">
+        <div class="col-12">
+            {{ form_widget(form) }}
+            <button class="btn">{{ button_label|default('Save') }}</button>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+</div>

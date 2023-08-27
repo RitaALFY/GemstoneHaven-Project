@@ -1,0 +1,22 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+<div class="d-flex my-4">
+    <a class="main-link my-auto me-3" href="{{ path('app_admin_n_f_t_index') }}">
+        <i class="fa fa-arrow-left fa-2x"></i>
+    </a>
+ <h2>{{ 'back.pages.nft.edit.title'|trans({'%nft%': n_f_t.name }) }}</h2>
+    {{ include('back/admin/pages/nft/_delete_form.html.twig') }}
+</div>
+    {{ include('back/admin/pages/nft/_form.html.twig', {'button_label': 'Confirmer'}) }}
+
+
+
+
+{% endblock %}
+
+

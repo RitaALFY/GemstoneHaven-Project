@@ -1,0 +1,45 @@
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+<div class="mx-auto col-10">
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            {{ form_row(form.lastName) }}
+        </div>
+        <div class="col-lg-6 col-md-12">
+            {{ form_row(form.firstName) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            {{ form_row(form.birthAt) }}
+        </div>
+        <div class="col-lg-6 col-md-12">
+            {{ form_row(form.email) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            {{ form_row(form.password) }}
+        </div>
+        <div class="col-lg-6 col-md-12">
+            {{ form_row(form.gender) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            {{ form_row(form.image) }}
+        </div>
+        <div class="col-lg-6 col-md-12">
+            {{ form_row(form.address) }}
+        </div>
+    </div>
+
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+</div>

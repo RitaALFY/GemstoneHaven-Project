@@ -1,0 +1,104 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+
+{% block body %}
+    <div class="d-flex my-4">
+        <a class="main-link my-auto me-3" href="{{ path('app_admin_n_f_t_index') }}">
+            <i class="fa fa-arrow-left fa-2x"></i>
+        </a>
+        <h1>{{ 'back.pages.nft.show.title'|trans({'%nft%': n_f_t.name }) }}</h1>
+        <a class="main-link my-auto ms-5"
+           href="{{ path('app_admin_n_f_t_edit', {'slug': n_f_t.slug}) }}"
+           title=""{{ 'back.pages.nft.edit.title'|trans }}"
+        >
+            <i class="fa fa-pen fa-2x"></i>
+        </a>
+    </div>
+<div class="row">
+    <div class="col-4">
+        <div class="container-image-nft-show">
+            <img src="{{ n_f_t.image }}" style="width: 300px; height: 400px;">
+
+        </div>
+    </div>
+    <div class="col-8">
+    <table class="table table-dark table-striped">
+        <tbody>
+            <tr>
+                <th>{{ 'back.pages.nft.index.table.header.id'|trans }}</th>
+                <td>{{ n_f_t.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'back.pages.nft.index.table.header.name'|trans }}</th>
+                <td>{{ n_f_t.name }}</td>
+            </tr>
+
+            <tr>
+                <th>{{ 'back.pages.nft.index.table.header.drop_at'|trans }}</th>
+                <td>{{ n_f_t.dropAt ? n_f_t.dropAt|date('d-m-Y')}}</td>
+            </tr>
+
+            <tr>
+                <th>{{ 'back.pages.nft.index.table.header.AvailableQuantity'|trans }}</th>
+                <td>{{ n_f_t.availableQuantity }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'back.pages.nft.index.table.header.CurrentValue'|trans }}</th>
+                <td>{{ n_f_t.currentValue }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ n_f_t.slug }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'back.pages.nft.index.table.header.subcategories'|trans }}</th>
+                <td>
+
+{#                            <a class="main-link" href="{{ path('app_admin_subcategory_show', {'slug': subcategory.slug}) }}">#}
+                                {{ n_f_t.subCategory.name }}
+{#                            </a>#}
+
+                </td>
+            </tr>
+    <tr>
+        <th>{{ 'back.pages.nft.index.table.header.categories'|trans }}</th>
+        <td>
+
+            {#                            <a class="main-link" href="{{ path('app_admin_subcategory_show', {'slug': subcategory.slug}) }}">#}
+            {{ n_f_t.subCategory.category.name }}
+            {#                            </a>#}
+    </td>
+    </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+    <div>
+        <h3 class="my-5">Description actuelle :</h3>
+
+        {{ n_f_t.description|raw }}
+
+    </div>
+
+
+{#    <a href="{{ path('app_admin_n_f_t_index') }}">back to list</a>#}
+
+{#    <a href="{{ path('app_admin_n_f_t_edit', {'slug': n_f_t.slug}) }}">edit</a>#}
+
+<div class="mt-5">
+    <a class="main-link my-auto ms-5 ">
+
+
+    <i class="fa fa-trash fa-2x">  {{ include('back/admin/pages/nft/_delete_form.html.twig') }}</i>
+    </a></div>
+    <div class="mt-5">
+        <a class="main-link my-auto ms-5 ">
+
+
+            <i class="fa fa-trash fa-2x">  {{ include('back/admin/pages/nft/_delete_form.html.twig') }}</i>
+        </a></div>
+{% endblock %}

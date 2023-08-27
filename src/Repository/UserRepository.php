@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -84,6 +85,15 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         }
     }
 
-
+//    public function getQb(): QueryBuilder {
+//        return $this->createQueryBuilder('u')
+//            ->select('u', 'a', 'galeryOfUsers', 'galeryOfUsers.nFT')
+//            ->leftJoin('u.galeryOfUsers', 'galeryOfUsers')
+//            ->leftJoin('galeryOfUsers.nFT', 'nft')
+//            ->leftJoin('u.address', 'a');
+//
+//
+//    }
+//
 
 }

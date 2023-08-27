@@ -1,0 +1,54 @@
+<div class="text-center py-2">
+    <a class="main-link" href="{{ path('app_home') }}">
+        <img src="{{ asset('images/icons/gemstone_haven.jpg') }}" alt="Gemstone Haven Icon" style="width: 150px; height: 150px; border-radius: 20px;" />
+    </a>
+</div>
+<hr>
+
+<div class="menu">
+    <h4>NFTS</h4>
+    <ul class="list-unstyled ps-4">
+        <li>
+            {% include 'back/admin/common/_menu_link.html.twig' with
+                {
+                    'label': 'back.menu.nft.index'|trans,
+                    'pagePath': path('app_admin_n_f_t_index')
+                }
+            %}
+        </li>
+        <li>
+            {% include 'back/admin/common/_menu_link.html.twig' with
+                {
+                    'label': 'back.menu.nft.new'|trans,
+                    'pagePath': path('app_admin_n_f_t_new')
+                }
+            %}
+        </li>
+    </ul>
+</div>
+
+<hr>
+<div class="menu">
+    <h4>Utilisateurs</h4>
+    <ul class="list-unstyled ps-4">
+        <li>
+            {% include 'back/admin/common/_menu_link.html.twig' with
+                {
+                    'label': 'back.menu.user.index'|trans,
+                    'pagePath': path('app_admin_user_index')
+                }
+            %}
+        </li>
+        <li>
+            {% include 'back/admin/common/_menu_link.html.twig' with
+                {
+                    'label': 'back.menu.user.new'|trans,
+                    'pagePath': path('app_admin_user_new')
+                }
+            %}
+        </li>
+    </ul>
+</div>
+
+<hr>
+

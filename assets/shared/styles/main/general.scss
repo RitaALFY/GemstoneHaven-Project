@@ -1,18 +1,36 @@
 body {
   overflow-x: hidden;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   text-align: center;
   background-color: $lightbeige;
   height: 100vh;
 
   display: flex;
   flex-direction: column;
-
-
 }
+
 h2,
 h3 {
   font-family: $subtitle-font;
   font-size: 20px;
+}
+
+.icon-click {
+  cursor: pointer;
+  color: $golden;
+
+  &:hover {
+    color: $brown;
+  }
+}
+
+.main-link {
+  color: $bg-footdark;
+  text-decoration: none;
+
+  &:hover {
+    color: $brown;
+    text-decoration: none;
+  }
 }

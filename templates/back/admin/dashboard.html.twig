@@ -2,7 +2,8 @@
 
 {% block body %}
  <h1>{{ 'back.pages.dashboard.title'|trans }}</h1>
- <div class="col-lg-6 col-md-12">
+
+ <div class="table-responsive">
   <h3>{{ 'back.pages.dashboard.last_add'|trans }}</h3>
   <table class="table table-dark table-striped">
    <thead>
@@ -16,17 +17,41 @@
     <tr>
      <td>
       {{ nft.name }}
-
      </td>
      <td>
       {{ nft.currentValue }}
      </td>
-
     </tr>
    {% endfor %}
    </tbody>
   </table>
  </div>
- </div>
 
+ <div class="table-responsive">
+  <h3>{{ 'back.pages.dashboard.last_users'|trans }}</h3>
+  <table class="table table-dark table-striped">
+   <thead>
+   <tr>
+    <th>Nom</th>
+    <th>Pays</th>
+   </tr>
+   </thead>
+   <tbody>
+   {% for user in users %}
+    <tr>
+     <td>
+      {# <a class="main-link" href="{{ path('app_profile_show', {'name': user.lastName}) }}"> #}
+      {{ user.lastName }} {{ user.firstName }}
+      {# </a> #}
+     </td>
+     <td>
+      {% if user.address.country is not null %}
+       {{ user.address.country }}
+      {% endif %}
+     </td>
+    </tr>
+   {% endfor %}
+   </tbody>
+  </table>
+ </div>
 {% endblock %}

@@ -21,8 +21,78 @@ pages:
 common:
   button:
     confirm: "Valider"
+  title:
+    add: 'Ajouter'
 back:
   pages:
     dashboard:
       title: "Dashboard Administration"
       last_add: "Les derniers nfts ajoutées"
+      last_users: "Les dernières inscriptions"
+    nft:
+      index:
+        title: "Les Nfts"
+        table:
+          header:
+            drop_at: "Date de publication"
+            name: "Nom"
+            id: "#"
+            AvailableQuantity: "Quantité disponible"
+            CurrentValue: "Prix"
+            action: "Actions"
+            description: "Description"
+            subcategories: "Subcategory"
+            categories: "Category"
+      new:
+        title: "Ajouter un NFt"
+      show:
+        title: "Details"
+      edit:
+        title: "Modifier"
+    user:
+      index:
+        title: "Les utilisateurs "
+        table:
+          header:
+            id: '#'
+            name: 'Nom'
+            Email: 'Email'
+            Roles: 'Roles'
+            Password: 'Mot de passe'
+            Gender: 'Genre'
+            BirthAt: 'Date de naissance'
+            Image: 'image'
+            actions: 'Actions'
+            address: 'Address'
+      new:
+        title: 'Ajouter utilisateurs'
+      show:
+        title: "Details"
+      edit:
+        title: "Modifier"
+  menu:
+    nft:
+      index: "Liste des NFT"
+      new: "Ajouter un NFT"
+    user:
+      index: "Liste des utilisateurs"
+      new: "Ajouter un(e) utilisateur(e)"
+form:
+  nft:
+    name:
+      label: "Nom"
+    currentValue:
+      label: "Prix"
+    description:
+      label: "Description"
+    dropAt:
+      label: "Date de publication"
+    image:
+      label: "Image "
+    availableQuantity:
+      label: "Quantité disponible"
+    subCategory:
+      label: "subCategory"
+    category:
+      label: "Category"
+
