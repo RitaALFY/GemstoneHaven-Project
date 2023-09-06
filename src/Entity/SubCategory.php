@@ -39,6 +39,7 @@ class SubCategory implements SlugInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['subcategory:list', 'subcategory:items','nft:items', 'nft:list'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -54,7 +55,7 @@ class SubCategory implements SlugInterface
     private ?Category $category = null;
 
     #[ORM\OneToMany(mappedBy: 'subCategory', targetEntity: NFT::class)]
-    #[Groups(['subcategory:list', 'subcategory:items'])]
+    #[Groups(['subcategory:list', 'subcategory:items', 'nft:items', 'nft:list'])]
     private Collection $nfts;
 
     public function __construct()

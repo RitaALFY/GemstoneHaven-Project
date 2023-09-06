@@ -1,2 +1,9 @@
 api_login_check:
   path: /api/login_check
+
+
+
+app_inscription:
+  path: /api/inscription
+  controller: App\Controller\RegisterController::register
+  methods: ['POST']

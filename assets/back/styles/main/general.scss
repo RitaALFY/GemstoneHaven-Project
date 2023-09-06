@@ -25,3 +25,31 @@
     z-index: 1;
   }
 }
+
+.admin-menu {
+
+  background-color: $bg-footdark;
+
+  hr {
+    margin-left: 1rem;
+  }
+
+  .menu {
+    padding-left: 2em;
+
+    a {
+      text-decoration: none;
+      color: $gray;
+
+      &:hover {
+        color: $golden;
+      }
+
+      &.menu-active {
+        color: $golden;
+        font-size: 1.2rem;
+        text-decoration: underline;
+      }
+    }
+  }
+}

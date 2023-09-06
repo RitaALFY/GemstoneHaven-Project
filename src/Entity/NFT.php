@@ -54,6 +54,8 @@ class NFT implements SlugInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+
+    #[Groups(['nft:items', 'nft:list', 'subcategory:list', 'subcategory:items'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -61,11 +63,11 @@ class NFT implements SlugInterface
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['nft:post', 'nft:items', 'nft:list'])]
+    #[Groups(['nft:post', 'nft:items', 'nft:list', 'subcategory:list', 'subcategory:items'])]
     private ?string $image = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    #[Groups(['nft:post', 'nft:items', 'nft:list'])]
+    #[Groups(['nft:post', 'nft:items', 'nft:list', 'subcategory:list', 'subcategory:items'])]
     private ?\DateTimeInterface $dropAt = null;
 
     #[ORM\Column(length: 255)]
@@ -77,7 +79,7 @@ class NFT implements SlugInterface
     private ?int $availableQuantity = null;
 
     #[ORM\Column]
-    #[Groups(['nft:post', 'nft:items', 'nft:list'])]
+    #[Groups(['nft:post', 'nft:items', 'nft:list', 'subcategory:list', 'subcategory:items'])]
     private ?float $currentValue = null;
 
     #[ORM\Column(length: 255)]
@@ -85,7 +87,7 @@ class NFT implements SlugInterface
     private ?string $slug = null;
 
     #[ORM\ManyToOne(inversedBy: 'nfts')]
-    #[Groups(['nft:post', 'nft:items', 'nft:list'])]
+    #[Groups(['nft:post', 'nft:items', 'nft:list', 'subcategory:list', 'subcategory:items'])]
     private ?SubCategory $subCategory = null;
 
     #[ORM\OneToMany(mappedBy: 'nft', targetEntity: Cour::class)]

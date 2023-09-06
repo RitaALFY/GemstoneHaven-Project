@@ -40,7 +40,7 @@ security:
     access_control:
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/docs,  roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/user,  roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [POST] }
+        - { path: ^/api/users,  roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [POST] }
         - { path: ^/api/n_f_ts,   roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [ GET ] }
 #        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/admin,     roles: ROLE_ADMIN }

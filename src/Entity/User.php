@@ -71,6 +71,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     #[Assert\NotBlank(message: 'entity.user.password.not_blank')]
+    #[Groups(['user:post', 'user:items'])]
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
@@ -92,15 +93,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?\DateTimeInterface $birthAt = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['user:post', 'user:items'])]
+//    #[Groups(['user:post', 'user:items'])]
+    #[Groups('user:items')]
     private ?string $image = null;
 
     #[ORM\ManyToOne(inversedBy: 'users')]
-    #[Groups(['user:post', 'user:items','address:post', 'address:items'])]
+//    #[Groups(['user:post', 'user:items','address:post', 'address:items'])]
     private ?Address $address = null;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: GaleryOfUser::class)]
-    #[Groups(['user:post', 'user:items', ])]
+//    #[Groups([ 'user:items'])]
     private Collection $galeryOfUsers;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Intervention::class)]

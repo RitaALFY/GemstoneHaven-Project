@@ -64,7 +64,9 @@ class RegisterController extends AbstractController
                 $this->translator->trans('pages.user.success_create')
             );
 
-            return $this->redirectToRoute('app_home');
+//            return $this->redirectToRoute('app_home');
+            return $this->json(['message' => 'Inscription réussie'], Response::HTTP_OK);
+
         }
 
         return $this->render('front/pages/register/index.html.twig', [

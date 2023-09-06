@@ -39,11 +39,11 @@ class Address
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['address:post', 'address:items'])]
+    #[Groups(['address:post', 'address:items', 'user:post', 'user:items'])]
     private ?string $city = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['address:post', 'address:items'])]
+    #[Groups(['address:post', 'address:items', 'user:post', 'user:items'])]
 
     private ?string $street = null;
 
@@ -53,7 +53,7 @@ class Address
     private ?string $country = null;
 
     #[ORM\OneToMany(mappedBy: 'address', targetEntity: User::class)]
-    #[Groups(['address:post', 'address:items'])]
+//    #[Groups(['address:post', 'address:items'])]
     private Collection $users;
 
     public function __construct()
